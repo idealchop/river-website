@@ -69,11 +69,16 @@ export const seo = {
   ogImageAlt: "River Apps. Digitize. Connect. Grow.",
   ogImageWidth: 1920,
   ogImageHeight: 640,
+  /** Square wave mark (not the wordmark lockup). */
   logo: "/assets/river-logo-mark.png",
+  /** Full “river” lockup — schema.org Organization.logo / wide uses. */
   logoMark: "/assets/river-logo.png",
   logoMarkAlt: "River",
+  /** Wave mark on brand background — readable at tab / touch sizes. */
   appleTouchIcon: "/assets/river-logo-icon-180.png",
   favicon: "/assets/river-logo-icon-32.png",
+  favicon48: "/assets/river-logo-icon-48.png",
+  faviconIco: "/favicon.ico",
   home: {
     title: "River Apps: AI-powered operations for local business",
     description:

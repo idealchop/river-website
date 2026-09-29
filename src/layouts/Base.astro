@@ -34,8 +34,10 @@ const jsonLd = {
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
     <meta name="theme-color" content={seo.themeColor} />
-    <link rel="icon" type="image/png" href={seo.favicon ?? seo.logo} />
-    <link rel="apple-touch-icon" href={seo.appleTouchIcon ?? seo.logo} />
+    <link rel="icon" href={seo.faviconIco} sizes="any" />
+    <link rel="icon" type="image/png" sizes="32x32" href={seo.favicon} />
+    <link rel="icon" type="image/png" sizes="48x48" href={seo.favicon48} />
+    <link rel="apple-touch-icon" sizes="180x180" href={seo.appleTouchIcon} />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content={seo.siteName} />
     <meta property="og:title" content={title} />
