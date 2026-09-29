@@ -1,0 +1,25 @@
+---
+import { howItWorks } from "../../content/site";
+---
+
+<section id="how">
+  <div class="wrap">
+    <div class="center reveal" style="margin-bottom:56px">
+      <span class="label">{howItWorks.label}</span>
+      <h2>{howItWorks.titleLead}<br /><span class="grad">{howItWorks.titleAccent}</span></h2>
+    </div>
+    <div class="steps">
+      {
+        howItWorks.steps.map((step, index) => (
+          <div class="glass hov step reveal">
+            <div class="num">{step.num}</div>
+            <span class="who">{step.who}</span>
+            <h3>{step.title}</h3>
+            <p>{step.body}</p>
+            {index < howItWorks.steps.length - 1 && <span class="conn">→</span>}
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

@@ -1,0 +1,20 @@
+---
+import "../styles/journey-page.css";
+import Base from "../layouts/Base.astro";
+import Nav from "../components/Nav.astro";
+import Footer from "../components/Footer.astro";
+import JourneyHero from "../components/journey/JourneyHero.astro";
+import Timeline from "../components/journey/Timeline.astro";
+import JourneyCta from "../components/journey/JourneyCta.astro";
+import { seo } from "../content/site";
+---
+
+<Base title={seo.journey.title} description={seo.journey.description} path="/journey">
+  <Nav />
+  <main>
+    <JourneyHero />
+    <Timeline />
+    <JourneyCta />
+  </main>
+  <Footer />
+</Base>

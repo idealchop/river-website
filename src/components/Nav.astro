@@ -1,0 +1,44 @@
+---
+import { links, nav, seo } from "../content/site";
+import { samePageHref } from "../lib/links";
+
+const path = Astro.url.pathname.replace(/\/$/, "") || "/";
+const onJourney = path === "/journey";
+---
+
+<div class="topbar"></div>
+<header class="nav">
+  <div class="wrap">
+    <a href="/" class="logo">
+      <span class="logo-mark"><img src={seo.logoMark} alt="" width="26" height="26" /></span>River <em>Apps</em>
+    </a>
+    <nav class="nav-links" aria-label="Primary">
+      {
+        nav.items.map((item) => (
+          <a href={samePageHref(item.href, path)} class={item.href === "/journey" && onJourney ? "on" : undefined}>
+            {item.label}
+          </a>
+        ))
+      }
+    </nav>
+    <div class="nav-cta">
+      <a href={links.signIn} class="signin" rel="noreferrer">{nav.signIn}</a>
+      <a href={samePageHref("/#partner", path)} class="btn btn-primary btn-sm">{nav.partner}</a>
+      <button class="menu-btn" type="button" aria-label={nav.menuLabel} aria-expanded="false" aria-controls="mobile-nav">
+        <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M4 8h16M4 16h16" stroke="#fff" stroke-width="2" stroke-linecap="round"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+  <div class="mobile-nav" id="mobile-nav">
+    {
+      nav.items.map((item) => (
+        <a href={samePageHref(item.href, path)} class={item.href === "/journey" && onJourney ? "on" : undefined}>
+          {item.label}
+        </a>
+      ))
+    }
+    <a href={links.signIn} rel="noreferrer">{nav.signIn}</a>
+  </div>
+</header>

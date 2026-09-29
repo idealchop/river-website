@@ -1,0 +1,43 @@
+---
+import { about } from "../../content/site";
+import { ic, P_CHECK } from "../../lib/icons";
+
+const check = ic(P_CHECK, "#a78bfa", 18);
+const checkAqua = ic(P_CHECK, "#5eead4", 18);
+---
+
+<section id="about">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div>
+        <span class="label">{about.label}</span>
+        <h2>{about.titleLead}<br /><span class="grad">{about.titleAccent}</span></h2>
+      </div>
+      <p class="lead">{about.lead}</p>
+    </div>
+    <div class="two">
+      <div class="glass hov side card-pad reveal">
+        <span class="glow"></span>
+        <span class="card-k">{about.businessKicker}</span>
+        <h3 class="card-t">{about.businessTitle}</h3>
+        <p class="card-p">{about.businessBody}</p>
+        <ul>
+          {about.businessPoints.map((point) => (
+            <li><Fragment set:html={check} />{point}</li>
+          ))}
+        </ul>
+      </div>
+      <div class="glass hov side aq card-pad reveal">
+        <span class="glow"></span>
+        <span class="card-k">{about.customerKicker}</span>
+        <h3 class="card-t">{about.customerTitle}</h3>
+        <p class="card-p">{about.customerBody}</p>
+        <ul>
+          {about.customerPoints.map((point) => (
+            <li><Fragment set:html={checkAqua} />{point}</li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>

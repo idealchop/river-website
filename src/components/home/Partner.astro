@@ -1,0 +1,82 @@
+---
+import { partner } from "../../content/site";
+import { isPlaceholder } from "../../lib/placeholders";
+---
+
+<section id="partner" style="padding-top:40px">
+  <div class="wrap">
+    <div class="glass partner-box reveal">
+      <div class="grid-bg"></div>
+      <div style="position:relative">
+        <span class="eyebrow aq"><b>{partner.eyebrowKicker}</b> {partner.eyebrow}</span>
+        <h2>{partner.titleLead}<br />{partner.titleMid} <span class="grad">{partner.titleAccent}</span></h2>
+        <p class="lead">{partner.lead}</p>
+        <ul class="checks">
+          {partner.checks.map((item) => <li>{item}</li>)}
+          <li>
+            {partner.pricingLabel}{" "}
+            {isPlaceholder(partner.pricing) ? <span class="ph">{partner.pricing}</span> : partner.pricing}
+          </li>
+        </ul>
+      </div>
+      <!--
+        TODO: This form does not submit anywhere.
+        Wire delivery in src/lib/partner-form.ts (submitPartnerLead).
+      -->
+      <form class="form" data-partner-form onsubmit="return false" aria-label="Partner interest form (demo)">
+        <h3>{partner.formTitle}</h3>
+        <p>{partner.formIntro}</p>
+        <div class="fields">
+          <div class="field full">
+            <label for="n">{partner.fields.name.label}</label>
+            <input id="n" name="fullName" placeholder={partner.fields.name.placeholder} autocomplete="name" />
+          </div>
+          <div class="field">
+            <label for="t">{partner.fields.type.label}</label>
+            <select id="t" name="businessType">
+              {partner.fields.type.options.map((option) => <option>{option}</option>)}
+            </select>
+          </div>
+          <div class="field">
+            <label for="c">{partner.fields.city.label}</label>
+            <input id="c" name="city" placeholder={partner.fields.city.placeholder} autocomplete="address-level2" />
+          </div>
+          <div class="field full">
+            <label for="p">{partner.fields.mobile.label}</label>
+            <input id="p" name="mobile" placeholder={partner.fields.mobile.placeholder} inputmode="tel" autocomplete="tel" />
+          </div>
+        </div>
+        <button class="btn btn-primary" type="submit">{partner.submit} <span class="arrow">→</span></button>
+        <p class="fine">
+          {partner.fine}{" "}
+          {
+            isPlaceholder(partner.privacy) ? (
+              <span class="ph">{partner.privacy}</span>
+            ) : partner.privacy.startsWith("http") ? (
+              <a href={partner.privacy}>Privacy policy</a>
+            ) : (
+              partner.privacy
+            )
+          }
+        </p>
+      </form>
+    </div>
+  </div>
+</section>
+<script>
+  import { submitPartnerLead } from "../../lib/partner-form";
+
+  document.querySelectorAll<HTMLFormElement>("[data-partner-form]").forEach((form) => {
+    form.addEventListener("submit", (event) => {
+      event.preventDefault();
+      const data = new FormData(form);
+      // TODO(partner-form): submitPartnerLead does not transmit this lead yet.
+      void submitPartnerLead({
+        fullName: String(data.get("fullName") ?? ""),
+        businessType: String(data.get("businessType") ?? ""),
+        city: String(data.get("city") ?? ""),
+        mobile: String(data.get("mobile") ?? ""),
+      });
+    });
+  });
+</script>

@@ -1,0 +1,39 @@
+---
+import { journeyPreview } from "../../content/site";
+---
+
+<section id="journey">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div>
+        <span class="label">{journeyPreview.label}</span>
+        <h2>{journeyPreview.titleLead} <span class="grad">{journeyPreview.titleAccent}</span></h2>
+      </div>
+      <a href="/journey" class="btn btn-ghost">{journeyPreview.cta} <span class="arrow">→</span></a>
+    </div>
+    <div class="art-row">
+      {
+        journeyPreview.cards.map((card) => (
+          <a href="/journey" class="glass hov art reveal">
+            <div class={`cover ${card.tone}`}>
+              <b>
+                {card.cover.split("\n").map((line, index) => (
+                  <>
+                    {index > 0 && <br />}
+                    {line}
+                  </>
+                ))}
+              </b>
+            </div>
+            <div class="body">
+              <div class="meta"><span class={`status ${card.statusClass}`}>{card.status}</span>{card.date}</div>
+              <h3>{card.title}</h3>
+              <p>{card.body}</p>
+              <span class="go">{card.cta} <span class="arrow">→</span></span>
+            </div>
+          </a>
+        ))
+      }
+    </div>
+  </div>
+</section>

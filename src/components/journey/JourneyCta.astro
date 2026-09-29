@@ -1,0 +1,32 @@
+---
+import { company, journey } from "../../content/site";
+import { samePageHref } from "../../lib/links";
+
+const path = Astro.url.pathname.replace(/\/$/, "") || "/";
+---
+
+<section class="cta">
+  <div class="wrap">
+    <div class="glass cta-box reveal">
+      <span class="label">{journey.ctaLabel}</span>
+      <h2 style="font-size:clamp(34px,4.4vw,56px);letter-spacing:-.045em;margin:18px 0 16px">
+        {journey.ctaTitleLead} <span class="grad">{journey.ctaTitleAccent}</span>
+      </h2>
+      <p class="lead">{journey.ctaLead}</p>
+      <div class="btns">
+        <a href={samePageHref("/#partner", path)} class="btn btn-primary">{journey.ctaPartner} <span class="arrow">→</span></a>
+        {
+          company.followJourney.href ? (
+            <a href={company.followJourney.href} class="btn btn-ghost" rel="noreferrer">
+              {journey.ctaFollow}
+            </a>
+          ) : (
+            <a href="#" class="btn btn-ghost">
+              {journey.ctaFollow} <span class="ph">{company.followJourney.label}</span>
+            </a>
+          )
+        }
+      </div>
+    </div>
+  </div>
+</section>

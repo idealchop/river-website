@@ -1,0 +1,42 @@
+---
+import { partnerLogos } from "../../content/site";
+import { isPlaceholder } from "../../lib/placeholders";
+---
+
+<div class="logos">
+  <div class="wrap">
+    <p>
+      {partnerLogos.caption}{
+        partnerLogos.note ? (
+          <>
+            {" "}
+            {isPlaceholder(partnerLogos.note) ? (
+              <span class="ph">{partnerLogos.note}</span>
+            ) : (
+              <span>{partnerLogos.note}</span>
+            )}
+          </>
+        ) : null
+      }
+    </p>
+    <div class="logo-row">
+      {
+        partnerLogos.slots.map((slot) =>
+          slot.src ? (
+            slot.href ? (
+              <a class="logo-img" href={slot.href} rel="noreferrer">
+                <img src={slot.src} alt={isPlaceholder(slot.name) ? "" : slot.name} />
+              </a>
+            ) : (
+              <div class="logo-img">
+                <img src={slot.src} alt={isPlaceholder(slot.name) ? "" : slot.name} />
+              </div>
+            )
+          ) : (
+            <div class="ph-box nolg">{slot.name}</div>
+          )
+        )
+      }
+    </div>
+  </div>
+</div>
