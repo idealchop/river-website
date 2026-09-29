@@ -59,6 +59,7 @@ export const links = {
   workspace: "https://app.riverph.com",
   laundry: "https://mylaundry.ph",
   carwash: "https://mycarwash.ph",
+  gym: "https://mygym.ph",
 };
 
 export const seo = {
@@ -126,6 +127,7 @@ export const footer = {
         { label: "Smart Refill", href: links.smartRefill },
         { label: "Mylaundry.ph", href: links.laundry },
         { label: "Mycarwash.ph", href: links.carwash },
+        { label: "MyGym.ph", href: links.gym },
         { label: "River for Business", href: links.workspace },
       ],
     },
@@ -152,7 +154,7 @@ export const hero = {
   titleAccent: "Grow.",
   subBefore: "River Apps is the ",
   subStrong1: "AI-powered platform",
-  subMiddle: " that helps water refilling stations, laundry shops, carwashes and more run smarter. ",
+  subMiddle: " that helps water refilling stations, laundry shops, carwashes, gyms and more run smarter. ",
   subStrong2: "River Mobile",
   subAfter: " is the bridge that connects every household to them.",
   ctaBusiness: { label: "For Businesses", href: "#industries" },
@@ -198,7 +200,7 @@ export const hero = {
 
 export const partnerLogos = {
   caption: "Built for local service businesses",
-  note: "Water refill · laundry · carwash · and more across Metro Manila",
+  note: "Water refill · laundry · carwash · gym · and more across Metro Manila",
   /**
    * Ecosystem wordmarks until approved partner logos are available.
    */
@@ -208,7 +210,7 @@ export const partnerLogos = {
     { name: "River for Business", src: "", href: links.workspace },
     { name: "Mylaundry.ph", src: "", href: links.laundry },
     { name: "Mycarwash.ph", src: "", href: links.carwash },
-    { name: "KawaniHub", src: "", href: "" },
+    { name: "MyGym.ph", src: "", href: links.gym },
   ],
 };
 
@@ -216,7 +218,7 @@ export const about = {
   label: "One river, two sides",
   titleLead: "Built for the businesses.",
   titleAccent: "Made for their customers.",
-  lead: "Your suki water station, laundry shop and carwash still run on notebooks, group chats and phone calls. Since 2025, River has been connecting both sides on one platform — starting with Smart Refill, and growing into River Mobile for households.",
+  lead: "Your suki water station, laundry shop, carwash and gym still run on notebooks, group chats and phone calls. Since 2025, River has been connecting both sides on one platform — starting with Smart Refill, and growing into River Mobile for households.",
   businessKicker: "River Apps · for businesses",
   businessTitle: "Run your shop smarter",
   businessBody:
@@ -309,8 +311,8 @@ export interface IndustryFeature {
 }
 
 export interface IndustryTab {
-  id: "t1" | "t2" | "t3" | "t4";
-  panel: "p1" | "p2" | "p3" | "p4";
+  id: "t1" | "t2" | "t3" | "t4" | "t5";
+  panel: "p1" | "p2" | "p3" | "p4" | "p5";
   tab: string;
   statusClass: "live" | "soon" | "plan";
   status: string;
@@ -381,6 +383,19 @@ export const industries = {
     {
       id: "t4",
       panel: "p4",
+      tab: "🏋️ Gym",
+      statusClass: "soon",
+      status: "Coming soon · MyGym.ph",
+      title: "Gym",
+      body: "Memberships, check-ins and class schedules for gyms, connected to River Mobile.",
+      cta: { label: "Explore MyGym.ph", href: links.gym },
+      photoLabel: "Neighborhood gym floor",
+      photoSrc: "",
+      photoAlt: "Gym floor with memberships and check-ins on River",
+    },
+    {
+      id: "t5",
+      panel: "p5",
       tab: "＋ More soon",
       statusClass: "plan",
       status: "Planned",
@@ -402,7 +417,7 @@ export const riverMobile = {
   titleLead: "Your home,",
   titleAccent: "connected",
   titleAfter: "to every local provider.",
-  lead: "Water, laundry, carwash: one app for all your suki. Wala nang hanapan ng number, wala nang “Kuya, nasaan na po?”",
+  lead: "Water, laundry, carwash, gym: one app for all your suki. Wala nang hanapan ng number, wala nang “Kuya, nasaan na po?”",
   features: [
     { title: "Scan & refill", body: "Scan the QR on your gallon to reorder." },
     { title: "Order in the app", body: "Book from your providers in a few taps." },
@@ -430,6 +445,7 @@ export const riverMobile = {
       { icon: "💧", label: "Water", state: "Live" },
       { icon: "🧺", label: "Laundry", state: "Soon" },
       { icon: "🚗", label: "Carwash", state: "Soon" },
+      { icon: "🏋️", label: "Gym", state: "Soon" },
     ],
     usual: "Your usual",
     usualSub: "One tap to reorder",
@@ -440,7 +456,7 @@ export const products = {
   label: "Our products",
   titleLead: "We build the tools",
   titleAccent: "local businesses run on.",
-  lead: "Purpose-built apps for neighborhood services — water refill today, laundry and carwash next — each one ready to connect households through River Mobile.",
+  lead: "Purpose-built apps for neighborhood services — water refill today, laundry, carwash and gym next — each one ready to connect households through River Mobile.",
   smartRefill: {
     name: "Smart Refill",
     href: links.smartRefill,
@@ -475,6 +491,17 @@ export const products = {
     aiChips: ["Connected to River Mobile"],
     cta: "Join the early list",
     icon: "🚗",
+  },
+  gym: {
+    name: "MyGym.ph",
+    href: links.gym,
+    status: "Coming soon",
+    domain: "mygym.ph",
+    body: "Memberships, check-ins and class schedules for gyms.",
+    chips: ["Memberships", "Check-ins", "Class schedules"],
+    aiChips: ["Connected to River Mobile"],
+    cta: "Visit mygym.ph",
+    icon: "🏋️",
   },
   workspace: {
     name: "River for Business",
@@ -604,7 +631,7 @@ export const partner = {
   titleLead: "Bring your station",
   titleMid: "onto",
   titleAccent: "River.",
-  lead: "We're onboarding water refilling stations first, starting in Metro Manila, with laundry shops and carwashes next. Tell us about your business and our team will reach out.",
+  lead: "We're onboarding water refilling stations first, starting in Metro Manila, with laundry shops, carwashes and gyms next. Tell us about your business and our team will reach out.",
   checks: [
     "Guided onboarding from the River team",
     "AI tools built in from day one",
@@ -621,7 +648,7 @@ export const partner = {
     name: { label: "Full name", placeholder: "Juan Dela Cruz" },
     type: {
       label: "Business type",
-      options: ["Water refilling station", "Laundry shop", "Carwash", "Other"],
+      options: ["Water refilling station", "Laundry shop", "Carwash", "Gym", "Other"],
     },
     city: { label: "City", placeholder: "e.g. Parañaque" },
     mobile: { label: "Mobile number", placeholder: "09XX XXX XXXX" },
@@ -687,8 +714,8 @@ export const journey = {
       side: "l",
       date: "2025",
       badge: "Built",
-      title: "River Kit and KawaniHub",
-      body: "River Kit, our white-label app template, and KawaniHub, a government constituent-service app built on it.",
+      title: "River Kit white-label platform",
+      body: "River Kit, our white-label app template for launching industry apps on the River platform.",
       tags: ["Platform", "White-label"],
     },
     {
@@ -734,15 +761,15 @@ export const journey = {
       date: "Next",
       badge: "Planned",
       title: "More providers, more of Metro Manila",
-      body: "Mylaundry.ph and Mycarwash.ph bridged into River Mobile, and expansion across Metro Manila.",
-      tags: ["Laundry", "Carwash", "Expansion"],
+      body: "Mylaundry.ph, Mycarwash.ph and MyGym.ph bridged into River Mobile, and expansion across Metro Manila.",
+      tags: ["Laundry", "Carwash", "Gym", "Expansion"],
     },
   ] satisfies TimelineEvent[],
   ctaLabel: "Innovation · Automation · Growth",
   ctaTitleLead: "Be part of the",
   ctaTitleAccent: "next chapter.",
   ctaLead:
-    "Run a water refilling station, laundry shop or carwash? Partner with us ahead of launch, or follow along as River Mobile goes live.",
+    "Run a water refilling station, laundry shop, carwash or gym? Partner with us ahead of launch, or follow along as River Mobile goes live.",
   ctaPartner: "Partner with us",
   ctaFollow: "Follow our journey",
 };

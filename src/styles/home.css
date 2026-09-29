@@ -170,9 +170,9 @@ section{padding:130px 0;position:relative}
 .tab-bar{display:inline-flex;gap:4px;padding:5px;border-radius:999px;background:rgba(255,255,255,.035);box-shadow:0 0 0 1px var(--line) inset;margin:0 auto 36px}
 .tab-bar label{cursor:pointer;padding:10px 20px;border-radius:999px;color:var(--muted);font-weight:500;font-size:14.5px;transition:.25s}
 .tab-bar label:hover{color:#fff}
-#t1:checked~.tab-wrap label[for=t1],#t2:checked~.tab-wrap label[for=t2],#t3:checked~.tab-wrap label[for=t3],#t4:checked~.tab-wrap label[for=t4]{color:#fff;background:linear-gradient(180deg,rgba(139,92,246,.35),rgba(99,102,241,.2));box-shadow:0 0 0 1px rgba(167,139,250,.4) inset,0 0 20px -4px rgba(139,92,246,.6)}
+#t1:checked~.tab-wrap label[for=t1],#t2:checked~.tab-wrap label[for=t2],#t3:checked~.tab-wrap label[for=t3],#t4:checked~.tab-wrap label[for=t4],#t5:checked~.tab-wrap label[for=t5]{color:#fff;background:linear-gradient(180deg,rgba(139,92,246,.35),rgba(99,102,241,.2));box-shadow:0 0 0 1px rgba(167,139,250,.4) inset,0 0 20px -4px rgba(139,92,246,.6)}
 .panel{display:none;grid-template-columns:1fr 1.1fr;overflow:hidden;text-align:left}
-#t1:checked~.p1,#t2:checked~.p2,#t3:checked~.p3,#t4:checked~.p4{display:grid}
+#t1:checked~.p1,#t2:checked~.p2,#t3:checked~.p3,#t4:checked~.p4,#t5:checked~.p5{display:grid}
 .panel .txt{padding:48px}
 .panel h3{font-size:clamp(30px,3.4vw,44px);letter-spacing:-.04em;margin:16px 0 12px}
 .panel p{color:var(--muted);margin-bottom:22px;font-size:16px}
@@ -216,7 +216,7 @@ section{padding:130px 0;position:relative}
 .crd{margin-top:10px;border-radius:14px;padding:11px;background:rgba(255,255,255,.055);box-shadow:0 0 0 1px var(--line) inset}
 .crd b{color:#fff;font-size:12px}
 .prog{display:flex;gap:4px;margin-top:9px}.prog span{flex:1;height:4px;border-radius:3px;background:#2a2d6e}.prog span.on{background:linear-gradient(90deg,#8b5cf6,#2dd4bf)}
-.tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin-top:10px}
+.tiles{display:grid;grid-template-columns:repeat(2,1fr);gap:7px;margin-top:10px}
 .tile{text-align:center;padding:9px 2px;border-radius:12px;background:rgba(255,255,255,.055);box-shadow:0 0 0 1px var(--line) inset;color:#fff;font-weight:600;font-size:10px}
 .tile small{display:block;color:var(--dim);font-size:9px}
 .fl{position:absolute;z-index:3}

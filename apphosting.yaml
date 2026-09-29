@@ -1,6 +1,6 @@
 # Firebase App Hosting configuration for the River Apps Astro marketing site.
-# The app lives at the REPO ROOT — in the Firebase console, leave
-# "Root directory" empty (or `/`). Do NOT set it to `main`.
+# App lives at the REPO ROOT. Backend rootDirectory is `/` (set via API).
+# Do NOT set Root directory to `main` in the Firebase console.
 #
 # `npm run build` emits static files to dist/; `npm start` serves them on $PORT.
 

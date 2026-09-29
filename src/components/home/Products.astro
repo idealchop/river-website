@@ -6,6 +6,7 @@ import { isExternal } from "../../lib/links";
 const refill = products.smartRefill;
 const laundry = products.laundry;
 const carwash = products.carwash;
+const gym = products.gym;
 const mobile = products.mobile;
 ---
 
@@ -56,6 +57,19 @@ const mobile = products.mobile;
           </div>
           <span class="bigico">{carwash.icon}</span>
           <span class="go">{carwash.cta} <span class="arrow">→</span></span>
+        </div>
+      </a>
+      <a href={gym.href} class="glass hov prod p-sm reveal" rel={isExternal(gym.href) ? "noreferrer" : undefined}>
+        <div class="body">
+          <div class="top"><h3>{gym.name}</h3><span class="status soon">{gym.status}</span></div>
+          <span class="dom">{gym.domain}</span>
+          <p>{gym.body}</p>
+          <div class="chips">
+            {gym.chips.map((chip) => <span>{chip}</span>)}
+            {gym.aiChips.map((chip) => <span class="ai">{chip}</span>)}
+          </div>
+          <span class="bigico">{gym.icon}</span>
+          <span class="go">{gym.cta} <span class="arrow">→</span></span>
         </div>
       </a>
       <a href={mobile.href} class="glass hov prod p-wide reveal">
