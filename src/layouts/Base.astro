@@ -16,9 +16,10 @@ const jsonLd = {
   name: company.brand,
   legalName: company.legalName,
   url: siteUrl,
-  logo: new URL(seo.logo, siteUrl).href,
+  logo: new URL(seo.logoMark, siteUrl).href,
   description: seo.home.description,
   slogan: company.motto,
+  foundingDate: String(company.foundedYear),
   founder: { "@type": "Person", name: company.founder },
   areaServed: company.region,
 };
@@ -33,8 +34,8 @@ const jsonLd = {
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
     <meta name="theme-color" content={seo.themeColor} />
-    <link rel="icon" type="image/png" href={seo.logo} />
-    <link rel="apple-touch-icon" href={seo.logo} />
+    <link rel="icon" type="image/png" href={seo.favicon ?? seo.logo} />
+    <link rel="apple-touch-icon" href={seo.appleTouchIcon ?? seo.logo} />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content={seo.siteName} />
     <meta property="og:title" content={title} />

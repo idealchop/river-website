@@ -2,14 +2,19 @@
 import { riverMobile } from "../../content/site";
 import { APPLE, ic, P_BELL, P_CART, P_LOOP, P_PIN, P_QR, P_TRUCK, PLAY } from "../../lib/icons";
 
-const phone = riverMobile.phone;
 const floats = riverMobile.floats;
 ---
 
 <section id="river-mobile">
   <div class="wrap rm-grid">
     <div class="reveal">
-      <span class="eyebrow aq"><b>{riverMobile.eyebrowKicker}</b> {riverMobile.eyebrow}</span>
+      <div class="rm-eyebrow">
+        <span class="biz-brand">
+          {riverMobile.brandLead}
+          <span class="biz-badge">{riverMobile.brandBadge}</span>
+        </span>
+        <span class="rm-eyebrow-rest"><b>{riverMobile.eyebrowKicker}</b> {riverMobile.eyebrow}</span>
+      </div>
       <h2>{riverMobile.titleLead} <span class="grad">{riverMobile.titleAccent}</span> {riverMobile.titleAfter}</h2>
       <p class="lead">{riverMobile.lead}</p>
       <div class="rm-feats">
@@ -39,46 +44,26 @@ const floats = riverMobile.floats;
         <span class="store"><Fragment set:html={PLAY} /><span><small>{riverMobile.stores[1].small}</small><b>{riverMobile.stores[1].name}</b></span><span class="soon">{riverMobile.stores[1].badge}</span></span>
       </div>
     </div>
-    <div class="rm-vis reveal" aria-hidden="true">
-      <div class="halo"></div>
-      <div class="ring"></div>
-      <div class="ring b"></div>
-      <div class="tag aq fl hide-sm" style="left:0;top:90px"><span class="ti" set:html={ic(P_QR, "#fff", 14)} />{floats[0].title}</div>
-      <div class="tag fl hide-sm" style="right:0;top:170px;animation-delay:-2s"><span class="ti" set:html={ic(P_TRUCK, "#fff", 14)} />{floats[1].title}</div>
-      <div class="tag gl fl hide-sm" style="left:0;bottom:110px;animation-delay:-1s">
+    <div class="rm-vis reveal">
+      <div class="halo" aria-hidden="true"></div>
+      <div class="ring" aria-hidden="true"></div>
+      <div class="ring b" aria-hidden="true"></div>
+      <div class="tag aq fl hide-sm" style="left:-8%;top:72px" aria-hidden="true"><span class="ti" set:html={ic(P_QR, "#fff", 14)} />{floats[0].title}</div>
+      <div class="tag fl hide-sm" style="right:-6%;top:210px;animation-delay:-2s" aria-hidden="true"><span class="ti" set:html={ic(P_TRUCK, "#fff", 14)} />{floats[1].title}</div>
+      <div class="tag gl fl hide-sm" style="left:-10%;bottom:88px;animation-delay:-1s" aria-hidden="true">
         <span class="ti" set:html={ic(P_BELL, "#c4b5fd", 14)} />
         <div>{floats[2].title}<small>{floats[2].detail}</small></div>
       </div>
-      <div class="phone">
-        <div class="screen">
-          <div class="notch"></div>
-          <div class="scr-h">
-            <div>{phone.greeting}<b>{phone.name}</b></div>
-            <span class="av" style="width:30px;height:30px"></span>
-          </div>
-          <div class="map">
-            <svg viewBox="0 0 200 160" preserveAspectRatio="xMidYMid slice">
-              <path d="M-10 120 C40 100 60 140 110 110 S170 70 220 90" stroke="#1d2a7a" stroke-width="20" fill="none"></path>
-              <path d="M20 0 L40 160 M125 0 L95 160 M0 45 L200 60 M0 100 L200 130" stroke="#1b1d5e" stroke-width="6"></path>
-              <path d="M35 135 C60 110 80 90 100 78 S140 50 160 38" stroke="#c4b5fd" stroke-width="3" fill="none" class="route"></path>
-              <circle cx="35" cy="135" r="6" fill="#fff"></circle>
-              <circle cx="160" cy="38" r="14" fill="#2dd4bf" opacity=".25"></circle>
-              <circle cx="160" cy="38" r="6" fill="#2dd4bf"></circle>
-              <circle cx="100" cy="78" r="7" fill="#0b0c26" stroke="#a78bfa" stroke-width="3"></circle>
-            </svg>
-          </div>
-          <div class="crd">
-            <b>{phone.rider}</b>
-            <div>{phone.orderBefore}{phone.stationName}</div>
-            <div class="prog"><span class="on"></span><span class="on"></span><span class="on"></span><span></span></div>
-          </div>
-          <div class="tiles">
-            {phone.tiles.map((tile) => (
-              <div class="tile">{tile.icon}<br />{tile.label}<small>{tile.state}</small></div>
-            ))}
-          </div>
-          <div class="crd"><b>{phone.usual}</b><div>{phone.usualSub}</div></div>
-        </div>
+      <!-- Keep .phone shell + surrounding halo/rings/float tags so motion stays intact. -->
+      <div class="phone phone-real">
+        <img
+          class="phone-shot"
+          src={riverMobile.phoneImage}
+          alt={riverMobile.phoneImageAlt}
+          width="340"
+          height="700"
+          loading="lazy"
+        />
       </div>
     </div>
   </div>

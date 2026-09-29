@@ -4,14 +4,19 @@ import { isExternal, samePageHref } from "../lib/links";
 import { isPlaceholder } from "../lib/placeholders";
 
 const path = Astro.url.pathname.replace(/\/$/, "") || "/";
+const legalLinks = footer.legalLinks ?? [
+  { label: company.privacy.label, href: company.privacy.href },
+  { label: company.terms.label, href: company.terms.href },
+  { label: "Journey", href: "/journey" },
+];
 ---
 
 <footer>
   <div class="wrap">
     <div class="f-grid">
       <div>
-        <a href="/" class="logo" style="color:#fff">
-          <span class="logo-mark"><img src={seo.logoMark} alt="" width="26" height="26" /></span>River <em>Apps</em>
+        <a href="/" class="logo" aria-label="River home">
+          <img src={seo.logoMark} alt={seo.logoMarkAlt} width="150" height="40" />
         </a>
         <p style="margin-top:16px;max-width:320px">{footer.blurb}</p>
         <p class="f-motto grad">{company.motto}</p>
@@ -35,7 +40,15 @@ const path = Astro.url.pathname.replace(/\/$/, "") || "/";
       <div>
         <h4>{footer.companyTitle}</h4>
         <ul>
-          <li><a href="/journey">Journey</a></li>
+          {
+            legalLinks.map((link) =>
+              link.href ? (
+                <li>
+                  <a href={samePageHref(link.href, path)}>{link.label}</a>
+                </li>
+              ) : null
+            )
+          }
           <li>
             {
               isPlaceholder(company.contactEmail) ? (
@@ -55,29 +68,30 @@ const path = Astro.url.pathname.replace(/\/$/, "") || "/";
             }
           </li>
           {
-            company.socialProfiles.length > 0 ? (
-              company.socialProfiles.map((profile) => (
-                <li>
-                  <a href={profile.href} rel="noreferrer">
-                    {profile.label}
-                  </a>
-                </li>
-              ))
-            ) : (
-              <li>
-                <span class="ph">{company.socialLinksLabel}</span>
-              </li>
-            )
+            company.socialProfiles.length > 0
+              ? company.socialProfiles.map((profile) => (
+                  <li>
+                    <a href={profile.href} rel="noreferrer">
+                      {profile.label}
+                    </a>
+                  </li>
+                ))
+              : company.socialLinksLabel && isPlaceholder(company.socialLinksLabel)
+                ? (
+                    <li>
+                      <span class="ph">{company.socialLinksLabel}</span>
+                    </li>
+                  )
+                : null
           }
         </ul>
       </div>
     </div>
-    <div class="f-word">{footer.wordmark}</div>
     <div class="f-bottom">
       <span>
         © {company.copyrightYear} {company.legalName} · {
           company.privacy.href ? (
-            <a href={company.privacy.href}>{isPlaceholder(company.privacy.label) ? "Privacy" : company.privacy.label}</a>
+            <a href={company.privacy.href}>{isPlaceholder(company.privacy.label) ? "Privacy Policy" : company.privacy.label}</a>
           ) : isPlaceholder(company.privacy.label) ? (
             <span class="ph">{company.privacy.label}</span>
           ) : (
@@ -85,7 +99,7 @@ const path = Astro.url.pathname.replace(/\/$/, "") || "/";
           )
         } · {
           company.terms.href ? (
-            <a href={company.terms.href}>{isPlaceholder(company.terms.label) ? "Terms" : company.terms.label}</a>
+            <a href={company.terms.href}>{isPlaceholder(company.terms.label) ? "Terms of Use" : company.terms.label}</a>
           ) : isPlaceholder(company.terms.label) ? (
             <span class="ph">{company.terms.label}</span>
           ) : (

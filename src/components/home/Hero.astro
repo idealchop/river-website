@@ -26,8 +26,8 @@ const tag = (index: number) => hero.tags[index];
   <div class="aurora"></div>
   <div class="grid-bg"></div>
   <div class="wrap center">
-    <span class="eyebrow reveal"><b>{hero.eyebrowKicker}</b> {hero.eyebrow}</span>
-    <h1 class="reveal">{hero.titleLead}<br /><span class="g">{hero.titleAccent}</span></h1>
+    <span class="eyebrow reveal">{hero.eyebrow}</span>
+    <h1 class="reveal"><span class="h1-line">{hero.titleLead} <span class="g">{hero.titleAccent}</span></span></h1>
     <p class="sub reveal">
       {hero.subBefore}<strong>{hero.subStrong1}</strong>{hero.subMiddle}<strong>{hero.subStrong2}</strong>{hero.subAfter}
     </p>
@@ -63,15 +63,15 @@ const tag = (index: number) => hero.tags[index];
       <div class="d-body">
         <div class="d-side">
           <div class="b"><span class="logo-mark" style="width:22px;height:22px;border-radius:7px"></span>{d.product}</div>
-          <div class="it on"><Fragment set:html={ic(P_SPARK, "#c4b5fd", 13)} />AI Dashboard<span class="ai">AI</span></div>
+          <div class="it on"><Fragment set:html={ic(P_SPARK, "#c4b5fd", 13)} />AI Dashboard</div>
           <div class="it"><Fragment set:html={ic(P_CART, "#9197c6", 13)} />Orders</div>
           <div class="it"><Fragment set:html={ic(P_TRUCK, "#9197c6", 13)} />Deliveries</div>
           <div class="it"><Fragment set:html={ic(P_USERS, "#9197c6", 13)} />Riders</div>
           <div class="it"><Fragment set:html={ic(P_BOX, "#9197c6", 13)} />Inventory</div>
           <div class="sec">Intelligence</div>
-          <div class="it"><Fragment set:html={ic(P_QR, "#9197c6", 13)} />Smart Scan<span class="ai">AI</span></div>
-          <div class="it"><Fragment set:html={ic(P_CHART, "#9197c6", 13)} />Refill Forecaster<span class="ai">AI</span></div>
-          <div class="it"><Fragment set:html={ic(P_BOLT, "#9197c6", 13)} />River Insights<span class="ai">AI</span></div>
+          <div class="it"><Fragment set:html={ic(P_QR, "#9197c6", 13)} />Smart Scan</div>
+          <div class="it"><Fragment set:html={ic(P_CHART, "#9197c6", 13)} />Refill Forecaster</div>
+          <div class="it"><Fragment set:html={ic(P_BOLT, "#9197c6", 13)} />River Insights</div>
           <div class="it"><Fragment set:html={ic(P_DROP, "#9197c6", 13)} />Water Quality</div>
         </div>
         <div class="d-main">

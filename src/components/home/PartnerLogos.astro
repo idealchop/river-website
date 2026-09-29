@@ -32,8 +32,14 @@ import { isPlaceholder } from "../../lib/placeholders";
                 <img src={slot.src} alt={isPlaceholder(slot.name) ? "" : slot.name} />
               </div>
             )
-          ) : (
+          ) : isPlaceholder(slot.name) ? (
             <div class="ph-box nolg">{slot.name}</div>
+          ) : slot.href ? (
+            <a class="logo-img logo-text" href={slot.href} rel={slot.href.startsWith("http") ? "noreferrer" : undefined}>
+              {slot.name}
+            </a>
+          ) : (
+            <div class="logo-img logo-text">{slot.name}</div>
           )
         )
       }

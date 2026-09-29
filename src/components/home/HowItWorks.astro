@@ -10,13 +10,24 @@ import { howItWorks } from "../../content/site";
     </div>
     <div class="steps">
       {
-        howItWorks.steps.map((step, index) => (
-          <div class="glass hov step reveal">
-            <div class="num">{step.num}</div>
-            <span class="who">{step.who}</span>
-            <h3>{step.title}</h3>
-            <p>{step.body}</p>
-            {index < howItWorks.steps.length - 1 && <span class="conn">→</span>}
+        howItWorks.steps.map((step) => (
+          <div class="glass hov step how-card reveal">
+            <div class={`how-cover ${step.tone}`}>
+              <b>
+                {step.cover.split("\n").map((line, index) => (
+                  <>
+                    {index > 0 && <br />}
+                    {line}
+                  </>
+                ))}
+              </b>
+              <span class="how-num" aria-hidden="true">{step.num}</span>
+            </div>
+            <div class="how-body">
+              <span class="who">{step.who}</span>
+              <h3>{step.title}</h3>
+              <p>{step.body}</p>
+            </div>
           </div>
         ))
       }

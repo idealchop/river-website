@@ -34,29 +34,31 @@ export const company = {
   brand: "River Apps",
   legalName: "River Tech Inc.",
   founder: "Jimboy Regalado",
+  foundedYear: 2025,
   country: "Philippines",
   region: "Metro Manila",
   copyrightYear: 2026,
-  contactEmail: "[Contact email]",
-  officeAddress: "[Office address]",
-  /** Leave the list empty to keep the [Social links] footer chip. */
-  socialLinksLabel: "[Social links]",
+  contactEmail: "hello@riverph.com",
+  officeAddress: "Metro Manila, Philippines",
+  /** Leave the list empty until public social profiles are published. */
+  socialLinksLabel: "",
   socialProfiles: [] as { label: string; href: string }[],
-  privacy: { label: "[Privacy]", href: "" },
-  terms: { label: "[Terms]", href: "" },
+  privacy: { label: "Privacy Policy", href: "/privacy" },
+  terms: { label: "Terms of Use", href: "/terms" },
   /**
    * Journey page "Follow our journey" button.
-   * Leave href empty to keep the [Social link] chip inside the button.
+   * Leave href empty to hide the secondary CTA until a social channel is live.
    */
-  followJourney: { href: "", label: "[Social link]" },
-  footerNote: "Built in the Philippines 🇵🇭 · Starting in Metro Manila",
+  followJourney: { href: "", label: "" },
+  footerNote: "Built in the Philippines 🇵🇭 · Founded 2025 · Starting in Metro Manila",
   motto: "Innovation · Automation · Growth",
 };
 
 export const links = {
-  signIn: "https://app.riverph.com",
   smartRefill: "https://smartrefill.io",
   workspace: "https://app.riverph.com",
+  laundry: "https://mylaundry.ph",
+  carwash: "https://mycarwash.ph",
 };
 
 export const seo = {
@@ -66,8 +68,11 @@ export const seo = {
   ogImageAlt: "River Apps. Digitize. Connect. Grow.",
   ogImageWidth: 1920,
   ogImageHeight: 640,
-  logo: "/assets/river-icon-white.png",
-  logoMark: "/assets/river-icon-white-trim.png",
+  logo: "/assets/river-logo-mark.png",
+  logoMark: "/assets/river-logo.png",
+  logoMarkAlt: "River",
+  appleTouchIcon: "/assets/river-logo-icon-180.png",
+  favicon: "/assets/river-logo-icon-32.png",
   home: {
     title: "River Apps: AI-powered operations for local business",
     description:
@@ -78,18 +83,27 @@ export const seo = {
     description:
       "The River Apps journey: Smart Refill, River for Business, River Mobile and what's next.",
   },
+  privacy: {
+    title: "Privacy Policy | River Apps",
+    description:
+      "How River Tech Inc. collects, uses, and protects information across River Apps, Smart Refill, River Mobile, and related products.",
+  },
+  terms: {
+    title: "Terms of Use | River Apps",
+    description:
+      "Terms governing use of the River Apps marketing site and related River Tech Inc. products and services.",
+  },
 };
 
 export const nav = {
-  signIn: "Sign in",
   partner: "Partner with us",
   menuLabel: "Menu",
   items: [
-    { label: "Businesses", href: "/#industries" },
-    { label: "AI", href: "/#ai" },
-    { label: "River Mobile", href: "/#river-mobile" },
+    { label: "Business Apps", href: "/#industries" },
+    { label: "River", badge: "Mobile", href: "/#river-mobile" },
+    /** River + Business badge — dedicated org workspace section */
+    { label: "River", badge: "Business", href: "/#business" },
     { label: "Products", href: "/#products" },
-    { label: "Journey", href: "/journey" },
     { label: "About", href: "/#about" },
   ],
 };
@@ -97,23 +111,21 @@ export const nav = {
 export const footer = {
   blurb:
     "AI-powered technology for local businesses, and one app that connects every household to them.",
-  wordmark: "River",
   columns: [
     {
       title: "Businesses",
       links: [
         { label: "Industries", href: "/#industries" },
-        { label: "AI built in", href: "/#ai" },
+        { label: "AI features", href: "/#ai" },
         { label: "Partner with us", href: "/#partner" },
-        { label: "Sign in", href: links.signIn },
       ],
     },
     {
       title: "Products",
       links: [
         { label: "Smart Refill", href: links.smartRefill },
-        { label: "Mylaundry.ph", href: "/#products" },
-        { label: "Mycarwash.ph", href: "/#products" },
+        { label: "Mylaundry.ph", href: links.laundry },
+        { label: "Mycarwash.ph", href: links.carwash },
         { label: "River for Business", href: links.workspace },
       ],
     },
@@ -127,10 +139,14 @@ export const footer = {
     },
   ],
   companyTitle: "Company",
+  legalLinks: [
+    { label: "Privacy Policy", href: "/privacy" },
+    { label: "Terms of Use", href: "/terms" },
+    { label: "Journey", href: "/journey" },
+  ],
 };
 
 export const hero = {
-  eyebrowKicker: "AI",
   eyebrow: "AI-powered operations for local business",
   titleLead: "Digitize. Connect.",
   titleAccent: "Grow.",
@@ -176,24 +192,23 @@ export const hero = {
     tds: "TDS updated",
     tdsSub: "Shared with customers",
     riders: "Riders",
-    riderNames: ["Rider A", "Rider B", "Rider C"],
+    riderNames: ["Marco", "Ana", "Ben"],
   },
 };
 
 export const partnerLogos = {
-  caption: "Partner stations and businesses",
-  note: "[Partner logos, add once approved]",
+  caption: "Built for local service businesses",
+  note: "Water refill · laundry · carwash · and more across Metro Manila",
   /**
-   * Six slots, matching the approved row. Set src (and optionally href
-   * and name) when a logo is approved. Name is the chip text until then.
+   * Ecosystem wordmarks until approved partner logos are available.
    */
   slots: [
-    { name: "[Partner logo]", src: "", href: "" },
-    { name: "[Partner logo]", src: "", href: "" },
-    { name: "[Partner logo]", src: "", href: "" },
-    { name: "[Partner logo]", src: "", href: "" },
-    { name: "[Partner logo]", src: "", href: "" },
-    { name: "[Partner logo]", src: "", href: "" },
+    { name: "Smart Refill", src: "", href: links.smartRefill },
+    { name: "River Mobile", src: "", href: "/#river-mobile" },
+    { name: "River for Business", src: "", href: links.workspace },
+    { name: "Mylaundry.ph", src: "", href: links.laundry },
+    { name: "Mycarwash.ph", src: "", href: links.carwash },
+    { name: "KawaniHub", src: "", href: "" },
   ],
 };
 
@@ -201,7 +216,7 @@ export const about = {
   label: "One river, two sides",
   titleLead: "Built for the businesses.",
   titleAccent: "Made for their customers.",
-  lead: "Your suki water station, laundry shop and carwash still run on notebooks, group chats and phone calls. River connects both sides on one platform.",
+  lead: "Your suki water station, laundry shop and carwash still run on notebooks, group chats and phone calls. Since 2025, River has been connecting both sides on one platform — starting with Smart Refill, and growing into River Mobile for households.",
   businessKicker: "River Apps · for businesses",
   businessTitle: "Run your shop smarter",
   businessBody:
@@ -224,7 +239,6 @@ export const about = {
 };
 
 export const ai = {
-  eyebrowKicker: "AI",
   eyebrow: "AI built in",
   titleLead: "AI that helps local businesses",
   titleAccent: "run themselves.",
@@ -334,9 +348,9 @@ export const industries = {
         { text: "River Insights", ai: true },
       ],
       cta: { label: "Explore Smart Refill", href: links.smartRefill },
-      photoLabel: "[Photo: water refilling station]",
-      photoSrc: "",
-      photoAlt: "",
+      photoLabel: "Water refilling station operations",
+      photoSrc: "/assets/smart-refill-app.png",
+      photoAlt: "Smart Refill app for water refilling stations — dashboard with delivery in the field",
     },
     {
       id: "t2",
@@ -347,9 +361,9 @@ export const industries = {
       title: "Laundry",
       body: "Pickups, loads, turnaround and customer updates for laundry shops, connected to River Mobile.",
       cta: { label: "Join the early list", href: "#partner" },
-      photoLabel: "[Photo: laundry shop]",
+      photoLabel: "Neighborhood laundry shop",
       photoSrc: "",
-      photoAlt: "",
+      photoAlt: "Laundry shop ready for pickup and delivery on River",
     },
     {
       id: "t3",
@@ -360,9 +374,9 @@ export const industries = {
       title: "Carwash",
       body: "Bookings, queues and service tracking for carwashes, connected to River Mobile.",
       cta: { label: "Join the early list", href: "#partner" },
-      photoLabel: "[Photo: carwash]",
+      photoLabel: "Local carwash bay",
       photoSrc: "",
-      photoAlt: "",
+      photoAlt: "Carwash bay with queue and booking flow on River",
     },
     {
       id: "t4",
@@ -373,16 +387,18 @@ export const industries = {
       title: "More local services",
       body: "River is built to bring more neighborhood businesses online over time. Run a different kind of local service? Tell us.",
       cta: { label: "Talk to us", href: "#partner" },
-      photoLabel: "[Photo: local business]",
+      photoLabel: "Local service business",
       photoSrc: "",
-      photoAlt: "",
+      photoAlt: "Neighborhood service business going digital with River Apps",
     },
   ] satisfies IndustryTab[],
 };
 
 export const riverMobile = {
+  brandLead: "River",
+  brandBadge: "Mobile",
   eyebrowKicker: "Soon",
-  eyebrow: "River Mobile · for households",
+  eyebrow: "for households",
   titleLead: "Your home,",
   titleAccent: "connected",
   titleAfter: "to every local provider.",
@@ -402,12 +418,14 @@ export const riverMobile = {
     { title: "Rider Tracking" },
     { title: "Refill reminders", detail: "Coming soon" },
   ],
+  phoneImage: "/assets/river-mobile-app.png",
+  phoneImageAlt: "River Mobile app — home services, free delivery, and AI companion",
   phone: {
     greeting: "Magandang araw!",
     name: "River Mobile",
     rider: "Your rider is on the way",
     orderBefore: "2 × 5-gal refill · ",
-    stationName: "[Station name]",
+    stationName: "Suki Water · Parañaque",
     tiles: [
       { icon: "💧", label: "Water", state: "Live" },
       { icon: "🧺", label: "Laundry", state: "Soon" },
@@ -422,7 +440,7 @@ export const products = {
   label: "Our products",
   titleLead: "We build the tools",
   titleAccent: "local businesses run on.",
-  lead: "One ecosystem, built vertical by vertical. Every product is connected to River Mobile and the River for Business workspace.",
+  lead: "Purpose-built apps for neighborhood services — water refill today, laundry and carwash next — each one ready to connect households through River Mobile.",
   smartRefill: {
     name: "Smart Refill",
     href: links.smartRefill,
@@ -432,13 +450,13 @@ export const products = {
     chips: ["Orders", "Deliveries", "Riders", "Inventory", "Water quality / TDS"],
     aiChips: ["AI Dashboard", "Smart Scan", "Refill Forecaster", "River Insights"],
     cta: "Visit smartrefill.io",
-    screenshotLabel: "[Screenshot: Smart Refill dashboard]",
-    screenshotSrc: "",
-    screenshotAlt: "",
+    screenshotLabel: "Smart Refill AI dashboard",
+    screenshotSrc: "/assets/smart-refill-app.png",
+    screenshotAlt: "Smart Refill app with water station dashboard, delivery rider, and operator on tablet",
   },
   laundry: {
     name: "Mylaundry.ph",
-    href: "#partner",
+    href: links.laundry,
     status: "Coming soon",
     domain: "mylaundry.ph",
     body: "Operations and customer updates for laundry shops.",
@@ -449,7 +467,7 @@ export const products = {
   },
   carwash: {
     name: "Mycarwash.ph",
-    href: "#partner",
+    href: links.carwash,
     status: "Coming soon",
     domain: "mycarwash.ph",
     body: "Bookings, queues and service tracking for carwashes.",
@@ -462,12 +480,39 @@ export const products = {
     name: "River for Business",
     href: links.workspace,
     domain: "app.riverph.com",
-    body: "A shared workspace for owners and teams.",
+    status: "Live",
+    brandLead: "River",
+    brandBadge: "Business",
+    sectionLabel: "AI-powered for teams",
+    titleLead: "The AI-powered platform",
+    titleAccent: "built for teams.",
+    lead: "For companies, offices, and teams — one premium workspace to collaborate, run Team Hub, keep files, and automate busywork so your organization moves faster without the noise.",
+    body: "AI-powered workspace for companies, offices, and teams — not a consumer app.",
     modules: [
-      { title: "Collaboration", detail: "Docs" },
-      { title: "Team Hub", detail: "Staff · salary · time-in" },
-      { title: "Files", detail: "Shared storage" },
-      { title: "Automation", detail: "Less manual work" },
+      {
+        icon: "📄",
+        title: "Collaboration",
+        detail: "Docs",
+        body: "Shared docs and notes so office teams stay aligned without the group-chat scramble.",
+      },
+      {
+        icon: "👥",
+        title: "Team Hub",
+        detail: "Staff · salary · time-in",
+        body: "Staff roster, salary, and time-in for the people who keep your company running.",
+      },
+      {
+        icon: "📁",
+        title: "Files",
+        detail: "Shared storage",
+        body: "One place for contracts, SOPs, and company files your team actually needs.",
+      },
+      {
+        icon: "⚡",
+        title: "Automation",
+        detail: "Less manual work",
+        body: "AI-assisted workflows cut repetitive office tasks so managers focus on the work that matters.",
+      },
     ],
     cta: "Open workspace",
   },
@@ -481,6 +526,7 @@ export const products = {
   },
 };
 
+
 export const howItWorks = {
   label: "How it works",
   titleLead: "A simple loop that",
@@ -489,18 +535,24 @@ export const howItWorks = {
     {
       num: "01",
       who: "Business",
+      cover: "Your business\njoins River.",
+      tone: "c1" as const,
       title: "Your business joins River",
       body: "Set up your shop on River Apps: orders, riders, inventory, team and AI tools, ready to go.",
     },
     {
       num: "02",
       who: "Customers",
+      cover: "Customers\nconnect.",
+      tone: "c2" as const,
       title: "Customers connect via River Mobile",
       body: "Households find you, scan your QR and order straight from their phones.",
     },
     {
       num: "03",
       who: "Growth",
+      cover: "Repeat orders\ngrow.",
+      tone: "c3" as const,
       title: "Repeat orders grow",
       body: "Easy reorders, forecasting and insights keep customers coming back.",
     },
@@ -559,12 +611,12 @@ export const partner = {
     "Be discoverable on River Mobile at launch",
   ],
   pricingLabel: "Pricing:",
-  pricing: "[Pricing / free trial details]",
+  pricing: "Founding partner rates for Metro Manila stations — details shared during onboarding",
   formTitle: "Partner interest form",
   formIntro: "Takes less than a minute. Walang bayad para mag-inquire.",
   submit: "Send my details",
   fine: "By submitting, you agree to be contacted by River Tech Inc.",
-  privacy: "[Privacy policy link]",
+  privacy: "/privacy",
   fields: {
     name: { label: "Full name", placeholder: "Juan Dela Cruz" },
     type: {
@@ -598,7 +650,7 @@ export const journey = {
   titleLead: "From one station",
   titleMid: "to a",
   titleAccent: "connected city.",
-  lead: "River started with a simple idea: local businesses deserve great technology, and their customers deserve an easier way to reach them. Here's how far we've come, and where we're going next.",
+  lead: "River Tech was founded in 2025 with Smart Refill — the idea that local businesses deserve great technology, and their customers deserve an easier way to reach them. Here's how far we've come, and where we're going next.",
   legend: [
     { className: "past", label: "Done / live" },
     { className: "up", label: "Upcoming" },
@@ -612,27 +664,18 @@ export const journey = {
     {
       kind: "past",
       side: "l",
-      date: "[Year founded]",
+      date: "2025",
       badge: "Founded",
-      title: "River Tech Inc. is founded",
-      body: "Jimboy Regalado starts River Tech Inc. to help local businesses go digital.",
-      tags: ["Company"],
-    },
-    {
-      kind: "past",
-      side: "r",
-      date: "[Date]",
-      badge: "Live",
-      title: "Smart Refill launches",
-      body: "An operations platform for water refilling stations: orders, deliveries, riders, inventory and water quality/TDS updates. Now live with 5 stations in Metro Manila.",
-      tags: ["Water refill", "Metro Manila"],
+      title: "River Tech Inc. founded with Smart Refill",
+      body: "Jimboy Regalado starts River Tech Inc. and launches Smart Refill — AI-powered operations for water refilling stations (orders, deliveries, riders, inventory, and water quality/TDS). River Apps begins here. Now live with 5 stations in Metro Manila.",
+      tags: ["Company", "Smart Refill", "Metro Manila"],
       href: links.smartRefill,
       ai: true,
     },
     {
       kind: "past",
-      side: "l",
-      date: "[Date]",
+      side: "r",
+      date: "2025",
       badge: "Live",
       title: "River for Business workspace",
       body: "A shared workspace at app.riverph.com with Collaboration, Team Hub (staff, salary, time-in), Files and Automation.",
@@ -641,8 +684,8 @@ export const journey = {
     },
     {
       kind: "past",
-      side: "r",
-      date: "[Date]",
+      side: "l",
+      date: "2025",
       badge: "Built",
       title: "River Kit and KawaniHub",
       body: "River Kit, our white-label app template, and KawaniHub, a government constituent-service app built on it.",
@@ -650,7 +693,7 @@ export const journey = {
     },
     {
       kind: "past",
-      side: "l",
+      side: "r",
       date: "Sep 2026",
       pulse: true,
       badge: "Done",
@@ -660,7 +703,7 @@ export const journey = {
     },
     {
       kind: "up",
-      side: "r",
+      side: "l",
       date: "Oct 5–19, 2026",
       badge: "Upcoming",
       title: "Closed beta with station customers",
@@ -669,7 +712,7 @@ export const journey = {
     },
     {
       kind: "up",
-      side: "l",
+      side: "r",
       date: "Oct 20, 2026",
       badge: "Upcoming",
       title: "App Store and Google Play submission",
@@ -678,7 +721,7 @@ export const journey = {
     },
     {
       kind: "up",
-      side: "r",
+      side: "l",
       date: "Oct 27, 2026",
       badge: "Upcoming",
       title: "Soft launch with 5 partner stations",
@@ -687,7 +730,7 @@ export const journey = {
     },
     {
       kind: "plan",
-      side: "l",
+      side: "r",
       date: "Next",
       badge: "Planned",
       title: "More providers, more of Metro Manila",

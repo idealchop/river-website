@@ -1,0 +1,140 @@
+---
+import "../styles/legal.css";
+import Base from "../layouts/Base.astro";
+import Nav from "../components/Nav.astro";
+import Footer from "../components/Footer.astro";
+import { company, seo } from "../content/site";
+
+const updated = "September 29, 2026";
+---
+
+<Base title={seo.privacy.title} description={seo.privacy.description} path="/privacy">
+  <Nav />
+  <main class="legal">
+    <div class="aurora"></div>
+    <div class="wrap">
+      <article class="glass legal-card reveal">
+        <span class="label">Legal</span>
+        <h1>Privacy Policy</h1>
+        <p class="legal-meta">Last updated {updated} · {company.legalName} ({company.brand})</p>
+
+        <p>
+          This Privacy Policy explains how {company.legalName} (“River,” “we,” “us”) collects, uses, and
+          shares information when you visit riverph.com, use Smart Refill, River for Business, River Mobile,
+          or related products for water refilling stations, laundry shops, carwashes, and other local
+          service businesses in the {company.country}. River Tech was founded in {company.foundedYear} together
+          with the Smart Refill app.
+        </p>
+        <p>
+          This is a starter policy for our marketing site and product ecosystem. Product-specific notices
+          may apply inside signed-in workspaces and apps. If anything here conflicts with an in-product
+          notice for a paid or authenticated service, that notice controls for that service.
+        </p>
+
+        <h2>1. Who we are</h2>
+        <p>
+          {company.legalName} builds AI-powered operations tools for neighborhood businesses and River Mobile,
+          the household app that connects customers to their local providers. Founded in {company.foundedYear}
+          with Smart Refill, our principal place of business is {company.officeAddress}. Contact:{" "}
+          <a href={`mailto:${company.contactEmail}`}>{company.contactEmail}</a>.
+        </p>
+
+        <h2>2. Information we collect</h2>
+        <p>Depending on how you interact with River, we may collect:</p>
+        <ul>
+          <li>
+            <strong>Contact and inquiry data</strong> — name, business type, city, and mobile number when you
+            submit a partner interest form or email us.
+          </li>
+          <li>
+            <strong>Account and business data</strong> — workspace profile, staff roles, order/delivery records,
+            inventory, rider activity, water-quality/TDS updates, and similar operations data inside Smart Refill
+            and River for Business.
+          </li>
+          <li>
+            <strong>Customer app data</strong> — River Mobile account details, provider preferences, order history,
+            QR scan events, delivery tracking events, and device notifications you enable.
+          </li>
+          <li>
+            <strong>Technical data</strong> — IP address, browser type, device identifiers, pages viewed, and
+            approximate location derived from network data when you browse our marketing site.
+          </li>
+        </ul>
+
+        <h2>3. How we use information</h2>
+        <p>We use information to:</p>
+        <ul>
+          <li>Operate, secure, and improve River products and the marketing site</li>
+          <li>Respond to partner inquiries and provide onboarding support</li>
+          <li>Process orders, deliveries, inventory alerts, and customer communications for partner businesses</li>
+          <li>Power AI features such as dashboards, forecasting, scanning helpers, and insights from a shop’s own data</li>
+          <li>Send service notices; marketing messages only where permitted and with a clear way to opt out</li>
+          <li>Comply with law and protect the rights and safety of users, partners, and River</li>
+        </ul>
+
+        <h2>4. AI features</h2>
+        <p>
+          Some River products include AI-assisted summaries, forecasts, and insights. These features are designed
+          to help owners run water stations, laundry shops, carwashes, and similar businesses more efficiently.
+          We use business and operational data you provide in-product to generate those outputs. We do not sell
+          your customer lists as a standalone product.
+        </p>
+
+        <h2>5. Sharing</h2>
+        <p>We may share information with:</p>
+        <ul>
+          <li>Service providers who host infrastructure, analytics, messaging, or support tools under contract</li>
+          <li>Partner businesses and their staff when you are their customer using River Mobile</li>
+          <li>Riders or fulfillment staff assigned to complete a delivery or service request</li>
+          <li>Authorities when required by law or to protect against fraud, abuse, or security incidents</li>
+        </ul>
+        <p>We do not sell personal information for money.</p>
+
+        <h2>6. Retention</h2>
+        <p>
+          We keep information only as long as needed for the purposes above, including legal, accounting, and
+          dispute-resolution requirements. Marketing-site inquiry data is retained while we evaluate partnership
+          interest and for a reasonable follow-up period unless you ask us to delete it sooner where applicable.
+        </p>
+
+        <h2>7. Security</h2>
+        <p>
+          We use administrative, technical, and organizational measures appropriate to the sensitivity of the
+          data we handle. No method of transmission or storage is perfectly secure; please use strong credentials
+          and tell us promptly about suspected unauthorized access.
+        </p>
+
+        <h2>8. Your choices</h2>
+        <p>
+          Depending on your relationship with River and applicable Philippine law, you may request access,
+          correction, or deletion of personal information we hold, or ask questions about this policy, by
+          emailing <a href={`mailto:${company.contactEmail}`}>{company.contactEmail}</a>. River Mobile users can
+          also manage notification preferences in the app when available.
+        </p>
+
+        <h2>9. Children</h2>
+        <p>
+          River products are directed to businesses and adult household users. We do not knowingly collect
+          personal information from children for marketing or account creation.
+        </p>
+
+        <h2>10. Changes</h2>
+        <p>
+          We may update this Privacy Policy from time to time. The “Last updated” date at the top will change
+          when we do. Continued use of the site or products after an update means you acknowledge the revised
+          policy.
+        </p>
+
+        <h2>11. Contact</h2>
+        <p>
+          {company.legalName}<br />
+          {company.officeAddress}<br />
+          <a href={`mailto:${company.contactEmail}`}>{company.contactEmail}</a>
+        </p>
+
+        <a class="legal-back" href="/">← Back to River Apps</a>
+      </article>
+    </div>
+  </main>
+  <Footer />
+</Base>

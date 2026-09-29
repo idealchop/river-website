@@ -1,0 +1,92 @@
+---
+import "../styles/legal.css";
+import Base from "../layouts/Base.astro";
+import Nav from "../components/Nav.astro";
+import Footer from "../components/Footer.astro";
+import { company, seo } from "../content/site";
+
+const updated = "September 29, 2026";
+---
+
+<Base title={seo.terms.title} description={seo.terms.description} path="/terms">
+  <Nav />
+  <main class="legal">
+    <div class="aurora"></div>
+    <div class="wrap">
+      <article class="glass legal-card reveal">
+        <span class="label">Legal</span>
+        <h1>Terms of Use</h1>
+        <p class="legal-meta">Last updated {updated} · {company.legalName} ({company.brand})</p>
+
+        <p>
+          These Terms of Use govern your access to the River Apps marketing website and related public pages
+          operated by {company.legalName}. Separate terms, order forms, or product agreements may apply to
+          Smart Refill, River for Business, River Mobile, Mylaundry.ph, Mycarwash.ph, and other paid or
+          authenticated services.
+        </p>
+
+        <h2>1. Acceptance</h2>
+        <p>
+          By using this website, you agree to these Terms and our{" "}
+          <a href="/privacy">Privacy Policy</a>. If you do not agree, do not use the site.
+        </p>
+
+        <h2>2. What River provides</h2>
+        <p>
+          River builds software that helps local businesses—such as water refilling stations, laundry shops,
+          and carwashes—digitize operations, and River Mobile to connect households with those providers.
+          River Tech was founded in {company.foundedYear} together with Smart Refill. Content on this marketing
+          site is informational and may describe products that are live, in beta, or planned.
+        </p>
+
+        <h2>3. Partner inquiries</h2>
+        <p>
+          Submitting the partner interest form is not a contract. It authorizes River to contact you about
+          onboarding, pricing discussions, and product updates. Any commercial relationship starts only when
+          both parties agree in a separate writing or accepted product terms.
+        </p>
+
+        <h2>4. Acceptable use</h2>
+        <p>You agree not to misuse the site, including by attempting to disrupt service, scrape content at scale
+          without permission, introduce malware, or use the site for unlawful purposes.</p>
+
+        <h2>5. Intellectual property</h2>
+        <p>
+          River names, logos, product names (including Smart Refill and River Mobile), and site content are
+          owned by {company.legalName} or its licensors. You may not use them without prior written permission,
+          except for ordinary linking to public pages.
+        </p>
+
+        <h2>6. Disclaimers</h2>
+        <p>
+          The site is provided “as is.” We do not warrant that marketing descriptions are complete or that
+          planned features will launch on any stated date. Nothing on this site is legal, financial, or
+          professional advice.
+        </p>
+
+        <h2>7. Limitation of liability</h2>
+        <p>
+          To the fullest extent permitted by Philippine law, {company.legalName} is not liable for indirect,
+          incidental, special, consequential, or punitive damages arising from use of this marketing site.
+          Product-specific agreements may set different limits for authenticated services.
+        </p>
+
+        <h2>8. Governing law</h2>
+        <p>
+          These Terms are governed by the laws of the Republic of the Philippines. Courts in Metro Manila
+          have exclusive jurisdiction over disputes arising from this marketing site, unless a product agreement
+          says otherwise.
+        </p>
+
+        <h2>9. Contact</h2>
+        <p>
+          Questions about these Terms:{" "}
+          <a href={`mailto:${company.contactEmail}`}>{company.contactEmail}</a>
+        </p>
+
+        <a class="legal-back" href="/">← Back to River Apps</a>
+      </article>
+    </div>
+  </main>
+  <Footer />
+</Base>

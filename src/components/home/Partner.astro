@@ -52,8 +52,8 @@ import { isPlaceholder } from "../../lib/placeholders";
           {
             isPlaceholder(partner.privacy) ? (
               <span class="ph">{partner.privacy}</span>
-            ) : partner.privacy.startsWith("http") ? (
-              <a href={partner.privacy}>Privacy policy</a>
+            ) : partner.privacy.startsWith("http") || partner.privacy.startsWith("/") ? (
+              <a href={partner.privacy}>Privacy Policy</a>
             ) : (
               partner.privacy
             )

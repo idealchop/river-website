@@ -1,0 +1,46 @@
+---
+import { products } from "../../content/site";
+import { isExternal } from "../../lib/links";
+
+const ws = products.workspace;
+---
+
+<section id="business" class="biz-sec">
+  <div class="aurora-biz" aria-hidden="true"></div>
+  <div class="wrap">
+    <div class="biz-grid">
+      <div class="reveal">
+        <div class="biz-eyebrow">
+          <span class="biz-brand">
+            {ws.brandLead}
+            <span class="biz-badge">{ws.brandBadge}</span>
+          </span>
+        </div>
+        <p class="biz-kicker">{ws.sectionLabel}</p>
+        <h2>{ws.titleLead} <span class="grad">{ws.titleAccent}</span></h2>
+        <p class="lead">{ws.lead}</p>
+        <a
+          href={ws.href}
+          class="btn btn-primary"
+          style="margin-top:28px"
+          rel={isExternal(ws.href) ? "noreferrer" : undefined}
+        >
+          {ws.cta} <span class="arrow">→</span>
+        </a>
+      </div>
+      <div class="biz-beats reveal">
+        {
+          ws.modules.map((mod) => (
+            <div class="glass biz-beat">
+              <span class="biz-ico" aria-hidden="true">{mod.icon}</span>
+              <div>
+                <h3>{mod.title}</h3>
+                <p>{mod.body}</p>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</section>

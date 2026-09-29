@@ -1,11 +1,11 @@
 ---
 import MediaSlot from "../MediaSlot.astro";
 import { products } from "../../content/site";
+import { isExternal } from "../../lib/links";
 
 const refill = products.smartRefill;
 const laundry = products.laundry;
 const carwash = products.carwash;
-const workspace = products.workspace;
 const mobile = products.mobile;
 ---
 
@@ -19,7 +19,7 @@ const mobile = products.mobile;
       <p class="lead">{products.lead}</p>
     </div>
     <div class="prod-grid">
-      <a href={refill.href} class="glass hov prod p-main reveal" rel="noreferrer">
+      <a href={refill.href} class="glass hov prod p-main reveal" rel={isExternal(refill.href) ? "noreferrer" : undefined}>
         <MediaSlot label={refill.screenshotLabel} src={refill.screenshotSrc} alt={refill.screenshotAlt} boxClass="shot" />
         <div class="body">
           <div class="top"><h3>{refill.name}</h3><span class="status live">{refill.status}</span></div>
@@ -32,7 +32,7 @@ const mobile = products.mobile;
           <span class="go">{refill.cta} <span class="arrow">→</span></span>
         </div>
       </a>
-      <a href={laundry.href} class="glass hov prod p-sm reveal">
+      <a href={laundry.href} class="glass hov prod p-sm reveal" rel={isExternal(laundry.href) ? "noreferrer" : undefined}>
         <div class="body">
           <div class="top"><h3>{laundry.name}</h3><span class="status soon">{laundry.status}</span></div>
           <span class="dom">{laundry.domain}</span>
@@ -45,7 +45,7 @@ const mobile = products.mobile;
           <span class="go">{laundry.cta} <span class="arrow">→</span></span>
         </div>
       </a>
-      <a href={carwash.href} class="glass hov prod p-sm reveal">
+      <a href={carwash.href} class="glass hov prod p-sm reveal" rel={isExternal(carwash.href) ? "noreferrer" : undefined}>
         <div class="body">
           <div class="top"><h3>{carwash.name}</h3><span class="status soon">{carwash.status}</span></div>
           <span class="dom">{carwash.domain}</span>
@@ -58,20 +58,7 @@ const mobile = products.mobile;
           <span class="go">{carwash.cta} <span class="arrow">→</span></span>
         </div>
       </a>
-      <a href={workspace.href} class="glass hov prod p-half reveal" rel="noreferrer">
-        <div class="body">
-          <div class="top"><h3>{workspace.name}</h3></div>
-          <span class="dom">{workspace.domain}</span>
-          <p>{workspace.body}</p>
-          <div class="mods">
-            {workspace.modules.map((mod) => (
-              <div><b>{mod.title}</b>{mod.detail}</div>
-            ))}
-          </div>
-          <span class="go">{workspace.cta} <span class="arrow">→</span></span>
-        </div>
-      </a>
-      <a href={mobile.href} class="glass hov prod p-half reveal">
+      <a href={mobile.href} class="glass hov prod p-wide reveal">
         <div class="body">
           <div class="top"><h3>{mobile.name}</h3><span class="status soon">{mobile.status}</span></div>
           <span class="dom">{mobile.domain}</span>

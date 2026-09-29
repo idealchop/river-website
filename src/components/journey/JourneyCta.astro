@@ -20,11 +20,7 @@ const path = Astro.url.pathname.replace(/\/$/, "") || "/";
             <a href={company.followJourney.href} class="btn btn-ghost" rel="noreferrer">
               {journey.ctaFollow}
             </a>
-          ) : (
-            <a href="#" class="btn btn-ghost">
-              {journey.ctaFollow} <span class="ph">{company.followJourney.label}</span>
-            </a>
-          )
+          ) : null
         }
       </div>
     </div>
