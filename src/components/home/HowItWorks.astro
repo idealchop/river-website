@@ -1,0 +1,36 @@
+---
+import { howItWorks } from "../../content/site";
+---
+
+<section id="how">
+  <div class="wrap">
+    <div class="center reveal" style="margin-bottom:56px">
+      <span class="label">{howItWorks.label}</span>
+      <h2>{howItWorks.titleLead}<br /><span class="grad">{howItWorks.titleAccent}</span></h2>
+    </div>
+    <div class="steps">
+      {
+        howItWorks.steps.map((step) => (
+          <div class="glass hov step how-card reveal">
+            <div class={`how-cover ${step.tone}`}>
+              <b>
+                {step.cover.split("\n").map((line, index) => (
+                  <>
+                    {index > 0 && <br />}
+                    {line}
+                  </>
+                ))}
+              </b>
+              <span class="how-num" aria-hidden="true">{step.num}</span>
+            </div>
+            <div class="how-body">
+              <span class="who">{step.who}</span>
+              <h3>{step.title}</h3>
+              <p>{step.body}</p>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

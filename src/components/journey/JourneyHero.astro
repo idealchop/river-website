@@ -1,0 +1,18 @@
+---
+import { journey } from "../../content/site";
+---
+
+<section class="j-hero">
+  <div class="aur"></div>
+  <div class="grid-bg"></div>
+  <div class="wrap" style="position:relative">
+    <span class="eyebrow reveal"><b>{journey.eyebrowKicker}</b> {journey.eyebrow}</span>
+    <h1 class="reveal">{journey.titleLead}<br />{journey.titleMid} <span class="g">{journey.titleAccent}</span></h1>
+    <p class="reveal">{journey.lead}</p>
+    <div class="legend reveal">
+      {journey.legend.map((item) => (
+        <span class="lg"><i class={item.className}></i>{item.label}</span>
+      ))}
+    </div>
+  </div>
+</section>

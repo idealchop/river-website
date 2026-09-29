@@ -1,0 +1,137 @@
+---
+import { ai } from "../../content/site";
+import {
+  ic,
+  P_BELL,
+  P_BOLT,
+  P_BOX,
+  P_CART,
+  P_CHART,
+  P_CHECK,
+  P_DROP,
+  P_LOOP,
+  P_QR,
+  P_SPARK,
+  P_TRUCK,
+  QR_SVG,
+} from "../../lib/icons";
+
+const dash = ai.dashboard;
+---
+
+<section id="ai" class="ai-sec">
+  <div class="aurora2"></div>
+  <div class="wrap">
+    <div class="center reveal" style="margin-bottom:60px">
+      <span class="eyebrow">{ai.eyebrow}</span>
+      <h2>{ai.titleLead}<br /><span class="grad">{ai.titleAccent}</span></h2>
+      <p class="lead">{ai.lead}</p>
+    </div>
+    <div class="bento">
+      <div class="glass hov b-dash reveal">
+        <span class="aitag"><i set:html={ic(P_SPARK, "#fff", 11)}></i>{dash.tag}</span>
+        <h3>{dash.title}</h3>
+        <p>{dash.body}</p>
+        <div class="viz">
+          <div class="glance">
+            <div><span>{dash.glance[0]}</span><div class="gb"><b style="width:70%"></b></div></div>
+            <div><span>{dash.glance[1]}</span><div class="gb"><b style="width:52%"></b></div></div>
+            <div><span>{dash.glance[2]}</span><div class="gb warn"><b style="width:30%"></b></div></div>
+            <div><span>{dash.glance[3]}</span><div class="gb"><b style="width:64%"></b></div></div>
+          </div>
+          <div class="ai-ui">
+            <div class="ai-hd">
+              <span class="spark" set:html={ic(P_SPARK, "#fff", 12)}></span>{dash.needs}
+              <span class="typing"><span></span><span></span><span></span></span>
+            </div>
+            <div class="row">
+              <span class="ic" set:html={ic(P_BOX, "#fdba74")}></span>
+              <div><b>{dash.rows[0].title}</b>{dash.rows[0].body}</div>
+              <span class={`pill ${dash.rows[0].pillClass}`}>{dash.rows[0].pill}</span>
+            </div>
+            <div class="row">
+              <span class="ic" set:html={ic(P_LOOP, "#5eead4")}></span>
+              <div><b>{dash.rows[1].title}</b>{dash.rows[1].body}</div>
+              <span class={`pill ${dash.rows[1].pillClass}`}>{dash.rows[1].pill}</span>
+            </div>
+            <div class="row">
+              <span class="ic" set:html={ic(P_TRUCK, "#c4b5fd")}></span>
+              <div><b>{dash.rows[2].title}</b>{dash.rows[2].body}</div>
+              <span class={`pill ${dash.rows[2].pillClass}`}>{dash.rows[2].pill}</span>
+            </div>
+            <div class="row">
+              <span class="ic" set:html={ic(P_DROP, "#86efac")}></span>
+              <div><b>{dash.rows[3].title}</b>{dash.rows[3].body}</div>
+              <span class={`pill ${dash.rows[3].pillClass}`}>{dash.rows[3].pill}</span>
+            </div>
+          </div>
+          <div style="font-size:11px;color:var(--dim);margin-top:10px">{dash.illustrative}</div>
+        </div>
+      </div>
+      <div class="glass hov b-scan reveal">
+        <span class="aitag"><i set:html={ic(P_QR, "#fff", 11)}></i>{ai.scan.tag}</span>
+        <h3>{ai.scan.title}</h3>
+        <p>{ai.scan.body}</p>
+        <div class="viz">
+          <div class="scanbox">
+            <span class="corner c-tl"></span><span class="corner c-tr"></span>
+            <span class="corner c-bl"></span><span class="corner c-br"></span>
+            <div class="qrw" set:html={QR_SVG}></div>
+            <span class="line"></span>
+          </div>
+          <div class="scan-res"><Fragment set:html={ic(P_CHECK, "#5eead4", 15)} />{ai.scan.result}</div>
+        </div>
+      </div>
+      <div class="glass hov b-fore reveal">
+        <span class="aitag"><i set:html={ic(P_CHART, "#fff", 11)}></i>{ai.forecast.tag}</span>
+        <h3>{ai.forecast.title}</h3>
+        <p>{ai.forecast.body}</p>
+        <div class="viz">
+          <svg viewBox="0 0 300 90" width="100%" height="90" preserveAspectRatio="none">
+            <defs>
+              <linearGradient id="gb" x1="0" x2="0" y1="0" y2="1">
+                <stop offset="0" stop-color="#5eead4" stop-opacity=".35"></stop>
+                <stop offset="1" stop-color="#5eead4" stop-opacity="0"></stop>
+              </linearGradient>
+            </defs>
+            <path d="M0 70 C30 60 50 66 80 50 S130 44 160 48 L160 90 L0 90Z" fill="rgba(139,92,246,.25)"></path>
+            <path d="M0 70 C30 60 50 66 80 50 S130 44 160 48" stroke="#a78bfa" stroke-width="2.5" fill="none"></path>
+            <path d="M160 48 C200 52 220 26 250 28 S290 14 300 12 L300 90 L160 90Z" fill="url(#gb)"></path>
+            <path d="M160 48 C200 52 220 26 250 28 S290 14 300 12" stroke="#5eead4" stroke-width="2.5" fill="none" class="route"></path>
+            <circle cx="160" cy="48" r="4" fill="#fff"></circle>
+          </svg>
+        </div>
+      </div>
+      <div class="glass hov b-ins reveal">
+        <span class="aitag"><i set:html={ic(P_BOLT, "#fff", 11)}></i>{ai.insights.tag}</span>
+        <h3>{ai.insights.title}</h3>
+        <p>{ai.insights.body}</p>
+        <div class="viz">
+          <div class="bars">
+            <span style="height:40%"></span><span style="height:55%"></span><span style="height:48%"></span>
+            <span style="height:70%"></span><span style="height:62%"></span><span style="height:82%" class="hl"></span>
+            <span style="height:74%"></span>
+          </div>
+          <div class="ins-tags">
+            {ai.insights.tags.map((tag) => <span>{tag}</span>)}
+          </div>
+        </div>
+      </div>
+      <div class="glass hov b-auto reveal">
+        <span class="status soon" style="align-self:flex-start">{ai.automated.status}</span>
+        <h3>{ai.automated.title}</h3>
+        <p>{ai.automated.body}</p>
+        <div class="viz">
+          <div class="flow">
+            <span class="n"><Fragment set:html={ic(P_CHART, "#5eead4", 14)} />{ai.automated.steps[0]}</span>
+            <span class="ar">→</span>
+            <span class="n"><Fragment set:html={ic(P_BELL, "#c4b5fd", 14)} />{ai.automated.steps[1]}</span>
+            <span class="ar">→</span>
+            <span class="n"><Fragment set:html={ic(P_CART, "#fff", 14)} />{ai.automated.steps[2]}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p class="ai-foot reveal">{ai.foot}</p>
+  </div>
+</section>

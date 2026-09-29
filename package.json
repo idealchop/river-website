@@ -1,0 +1,20 @@
+{
+  "name": "river-website",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "start": "serve dist -l tcp://0.0.0.0:$PORT"
+  },
+  "dependencies": {
+    "@astrojs/sitemap": "^3.6.0",
+    "astro": "^5.14.1",
+    "serve": "^14.2.6"
+  },
+  "engines": {
+    "node": "20"
+  }
+}

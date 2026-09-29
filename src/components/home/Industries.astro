@@ -1,0 +1,53 @@
+---
+import MediaSlot from "../MediaSlot.astro";
+import { industries } from "../../content/site";
+import { isExternal } from "../../lib/links";
+---
+
+<section id="industries">
+  <div class="wrap">
+    <div class="center reveal" style="margin-bottom:44px">
+      <span class="label">{industries.label}</span>
+      <h2>{industries.titleLead} <span class="grad">{industries.titleAccent}</span></h2>
+      <p class="lead">{industries.lead}</p>
+    </div>
+    <div class="tabs reveal">
+      {
+        industries.tabs.map((tab, index) =>
+          index === 0 ? (
+            <input type="radio" name="ind" id={tab.id} checked />
+          ) : (
+            <input type="radio" name="ind" id={tab.id} />
+          )
+        )
+      }
+      <div class="tab-wrap">
+        <div class="tab-bar">
+          {industries.tabs.map((tab) => <label for={tab.id}>{tab.tab}</label>)}
+        </div>
+      </div>
+      {
+        industries.tabs.map((tab) => (
+          <div class={`panel glass ${tab.panel}`}>
+            <div class="txt">
+              <span class={`status ${tab.statusClass}`}>{tab.status}</span>
+              <h3>{tab.title}</h3>
+              <p>{tab.body}</p>
+              {tab.features && (
+                <ul class="feat">
+                  {tab.features.map((feature) => (
+                    <li class={feature.ai ? "ai" : undefined}>{feature.text}</li>
+                  ))}
+                </ul>
+              )}
+              <a href={tab.cta.href} class="btn btn-glow" rel={isExternal(tab.cta.href) ? "noreferrer" : undefined}>
+                {tab.cta.label} <span class="arrow">→</span>
+              </a>
+            </div>
+            <MediaSlot label={tab.photoLabel} src={tab.photoSrc} alt={tab.photoAlt} />
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

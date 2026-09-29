@@ -1,0 +1,160 @@
+---
+import { hero } from "../../content/site";
+import {
+  ic,
+  P_BOLT,
+  P_BOX,
+  P_CART,
+  P_CHART,
+  P_DROP,
+  P_HOME,
+  P_LOCK,
+  P_PIN,
+  P_QR,
+  P_SEARCH,
+  P_SPARK,
+  P_TRUCK,
+  P_USERS,
+  QR_SVG,
+} from "../../lib/icons";
+
+const d = hero.dashboard;
+const tag = (index: number) => hero.tags[index];
+---
+
+<section class="hero">
+  <div class="aurora"></div>
+  <div class="grid-bg"></div>
+  <div class="wrap center">
+    <span class="eyebrow reveal">{hero.eyebrow}</span>
+    <h1 class="reveal"><span class="h1-line">{hero.titleLead} <span class="g">{hero.titleAccent}</span></span></h1>
+    <p class="sub reveal">
+      {hero.subBefore}<strong>{hero.subStrong1}</strong>{hero.subMiddle}<strong>{hero.subStrong2}</strong>{hero.subAfter}
+    </p>
+    <div class="ctas reveal">
+      <a href={hero.ctaBusiness.href} class="btn btn-primary">{hero.ctaBusiness.label} <span class="arrow">→</span></a>
+      <a href={hero.ctaCustomers.href} class="btn btn-ghost">{hero.ctaCustomers.label}</a>
+    </div>
+    <div class="motto reveal">
+      <span>{hero.motto[0]}</span><i></i><span>{hero.motto[1]}</span><i></i><span>{hero.motto[2]}</span>
+    </div>
+  </div>
+  <div class="stage" aria-hidden="true">
+    <div class="horizon"></div>
+    <div class="ring r1"></div><div class="orbit r1"></div>
+    <div class="ring r2"></div><div class="orbit r2"></div>
+    <div class="ring r3"></div>
+    <div class="tag t1"><span class="ti" set:html={ic(P_SPARK, "#fff", 14)} /><div>{tag(0).title}<small>{tag(0).detail}</small></div></div>
+    <div class="tag aq t2"><span class="ti" set:html={ic(P_HOME, "#fff", 14)} /><div>{tag(1).title}<small>{tag(1).detail}</small></div></div>
+    <div class="tag t3"><span class="ti" set:html={ic(P_CHART, "#fff", 14)} /><div>{tag(2).title}<small>{tag(2).detail}</small></div></div>
+    <div class="tag gl t4 hide-sm"><span class="ti" set:html={ic(P_QR, "#5eead4", 14)} /><div>{tag(3).title}<small>{tag(3).detail}</small></div></div>
+    <div class="tag gl t5 hide-sm"><span class="ti" set:html={ic(P_TRUCK, "#c4b5fd", 14)} /><div>{tag(4).title}<small>{tag(4).detail}</small></div></div>
+    <div class="tag t6 hide-md"><span class="ti" set:html={ic(P_BOLT, "#fff", 14)} /><div>{tag(5).title}<small>{tag(5).detail}</small></div></div>
+    <div class="ico w i1 hide-sm" set:html={ic(P_DROP, "#0d9488", 20)}></div>
+    <div class="ico i2 hide-sm" set:html={ic(P_QR, "#c4b5fd", 20)}></div>
+    <div class="ico i3 hide-sm" set:html={ic(P_PIN, "#5eead4", 20)}></div>
+    <div class="ico i4 hide-sm" set:html={ic(P_BOLT, "#a78bfa", 20)}></div>
+    <div class="ico i5 hide-md" set:html={ic(P_USERS, "#c4b5fd", 20)}></div>
+    <div class="dash">
+      <div class="d-top">
+        <i></i><i></i><i></i>
+        <span class="url"><Fragment set:html={ic(P_LOCK, "#666b98", 10)} />{d.url}</span>
+      </div>
+      <div class="d-body">
+        <div class="d-side">
+          <div class="b"><span class="logo-mark" style="width:22px;height:22px;border-radius:7px"></span>{d.product}</div>
+          <div class="it on"><Fragment set:html={ic(P_SPARK, "#c4b5fd", 13)} />AI Dashboard</div>
+          <div class="it"><Fragment set:html={ic(P_CART, "#9197c6", 13)} />Orders</div>
+          <div class="it"><Fragment set:html={ic(P_TRUCK, "#9197c6", 13)} />Deliveries</div>
+          <div class="it"><Fragment set:html={ic(P_USERS, "#9197c6", 13)} />Riders</div>
+          <div class="it"><Fragment set:html={ic(P_BOX, "#9197c6", 13)} />Inventory</div>
+          <div class="sec">Intelligence</div>
+          <div class="it"><Fragment set:html={ic(P_QR, "#9197c6", 13)} />Smart Scan</div>
+          <div class="it"><Fragment set:html={ic(P_CHART, "#9197c6", 13)} />Refill Forecaster</div>
+          <div class="it"><Fragment set:html={ic(P_BOLT, "#9197c6", 13)} />River Insights</div>
+          <div class="it"><Fragment set:html={ic(P_DROP, "#9197c6", 13)} />Water Quality</div>
+        </div>
+        <div class="d-main">
+          <div class="d-h">
+            <div><b>{d.greeting}</b><br /><span>{d.greetingSub}</span></div>
+            <div class="srch"><Fragment set:html={ic(P_SEARCH, "#555a8c", 11)} />{d.search}<kbd>⌘K</kbd></div>
+          </div>
+          <div class="aicard">
+            <div class="hd">
+              <span class="spark" set:html={ic(P_SPARK, "#fff", 12)}></span>{d.summary}
+              <span class="typing"><span></span><span></span><span></span></span>
+            </div>
+            <ul>
+              <li><i style="background:#fdba74"></i>{d.points[0]}</li>
+              <li><i style="background:#5eead4"></i>{d.points[1]}</li>
+              <li><i style="background:#c4b5fd"></i>{d.points[2]}</li>
+              <li><i style="background:#86efac"></i>{d.points[3]}</li>
+            </ul>
+          </div>
+          <div class="kpis">
+            <div class="kpi">{d.kpis[0]}<div class="sk"></div><div class="bar"><b style="width:72%"></b></div></div>
+            <div class="kpi">{d.kpis[1]}<div class="sk" style="width:45%"></div><div class="bar"><b style="width:55%"></b></div></div>
+            <div class="kpi">{d.kpis[2]}<div class="sk" style="width:52%"></div><div class="bar"><b style="width:38%"></b></div></div>
+            <div class="kpi">{d.kpis[3]}<div class="sk" style="width:35%"></div><div class="bar"><b style="width:64%"></b></div></div>
+          </div>
+          <div class="chart">
+            <div class="hd">
+              {d.chart}
+              <span class="legend"><span><i></i>{d.actual}</span><span><i class="f"></i>{d.forecast}</span></span>
+            </div>
+            <svg viewBox="0 0 500 110" width="100%" height="110" preserveAspectRatio="none">
+              <defs>
+                <linearGradient id="ga" x1="0" x2="0" y1="0" y2="1">
+                  <stop offset="0" stop-color="#8b5cf6" stop-opacity=".45"></stop>
+                  <stop offset="1" stop-color="#8b5cf6" stop-opacity="0"></stop>
+                </linearGradient>
+              </defs>
+              <g stroke="rgba(255,255,255,.05)"><path d="M0 27H500M0 55H500M0 83H500"></path></g>
+              <path d="M0 85 C40 70 70 80 110 62 S170 50 210 58 S270 36 310 40 L310 110 L0 110Z" fill="url(#ga)"></path>
+              <path d="M0 85 C40 70 70 80 110 62 S170 50 210 58 S270 36 310 40" stroke="#a78bfa" stroke-width="2.4" fill="none"></path>
+              <path d="M310 40 C350 44 380 22 420 26 S480 12 500 10" stroke="#5eead4" stroke-width="2.4" fill="none" class="route"></path>
+              <line x1="310" y1="0" x2="310" y2="110" stroke="rgba(255,255,255,.15)" stroke-dasharray="2 3"></line>
+              <circle cx="310" cy="40" r="4.5" fill="#0b0c24" stroke="#fff" stroke-width="2"></circle>
+            </svg>
+          </div>
+          <div class="tbl">
+            <div class="tr"><span></span><span>{d.columns[0]}</span><span>{d.columns[1]}</span><span>{d.columns[2]}</span></div>
+            <div class="tr"><span class="av"></span><span class="ln"></span><span class="ln" style="width:70%"></span><em class="st s1">{d.statuses[0]}</em></div>
+            <div class="tr"><span class="av b"></span><span class="ln" style="width:80%"></span><span class="ln" style="width:60%"></span><em class="st s2">{d.statuses[1]}</em></div>
+            <div class="tr"><span class="av c"></span><span class="ln" style="width:65%"></span><span class="ln" style="width:75%"></span><em class="st s3">{d.statuses[2]}</em></div>
+          </div>
+        </div>
+        <div class="d-right">
+          <div class="mini">
+            <div class="hd">{d.scan}<span class="status live" style="padding:2px 7px;font-size:9px">{d.scanReady}</span></div>
+            <div class="qr"><Fragment set:html={QR_SVG} /><span class="line"></span></div>
+            <div style="text-align:center;font-size:10px">{d.scanHint}</div>
+          </div>
+          <div class="mini">
+            <div class="hd">{d.quality}</div>
+            <div class="gauge">
+              <svg width="44" height="44" viewBox="0 0 44 44">
+                <defs>
+                  <linearGradient id="gg">
+                    <stop offset="0" stop-color="#2dd4bf"></stop>
+                    <stop offset="1" stop-color="#8b5cf6"></stop>
+                  </linearGradient>
+                </defs>
+                <circle cx="22" cy="22" r="18" stroke="#1e2050" stroke-width="5" fill="none"></circle>
+                <circle cx="22" cy="22" r="18" stroke="url(#gg)" stroke-width="5" fill="none" stroke-dasharray="80 200" stroke-linecap="round" transform="rotate(-90 22 22)"></circle>
+              </svg>
+              <div><b style="color:#fff;font-size:11px">{d.tds}</b><br />{d.tdsSub}</div>
+            </div>
+          </div>
+          <div class="mini">
+            <div class="hd">{d.riders}</div>
+            <div class="rider"><span class="av"></span>{d.riderNames[0]}<span class="dot"></span></div>
+            <div class="rider"><span class="av b"></span>{d.riderNames[1]}<span class="dot"></span></div>
+            <div class="rider"><span class="av c"></span>{d.riderNames[2]}<span class="dot o"></span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-fade"></div>
+  </div>
+</section>

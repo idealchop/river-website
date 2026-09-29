@@ -1,0 +1,34 @@
+---
+import "../styles/home-page.css";
+import Base from "../layouts/Base.astro";
+import Nav from "../components/Nav.astro";
+import Footer from "../components/Footer.astro";
+import Hero from "../components/home/Hero.astro";
+import PartnerLogos from "../components/home/PartnerLogos.astro";
+import About from "../components/home/About.astro";
+import AiSection from "../components/home/AiSection.astro";
+import Industries from "../components/home/Industries.astro";
+import RiverMobile from "../components/home/RiverMobile.astro";
+import Products from "../components/home/Products.astro";
+import BusinessWorkspace from "../components/home/BusinessWorkspace.astro";
+import HowItWorks from "../components/home/HowItWorks.astro";
+import Partner from "../components/home/Partner.astro";
+import { seo } from "../content/site";
+---
+
+<Base title={seo.home.title} description={seo.home.description} path="/">
+  <Nav />
+  <main>
+    <Hero />
+    <PartnerLogos />
+    <About />
+    <AiSection />
+    <Industries />
+    <RiverMobile />
+    <Products />
+    <BusinessWorkspace />
+    <HowItWorks />
+    <Partner />
+  </main>
+  <Footer />
+</Base>

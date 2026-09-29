@@ -1,0 +1,67 @@
+---
+import { journey, type TimelineEvent } from "../../content/site";
+import { ic, P_SPARK } from "../../lib/icons";
+import { isPlaceholder } from "../../lib/placeholders";
+
+const badgeClass: Record<TimelineEvent["kind"], string> = {
+  past: "b-past",
+  up: "b-up",
+  plan: "b-plan",
+};
+
+const events = journey.events;
+---
+
+<div class="wrap">
+  <div class="tl">
+    {
+      events.map((event, index) => (
+        <>
+          {event.kind === "up" && events[index - 1]?.kind === "past" && (
+            <div class="now-label reveal">
+              <span>{journey.nowLabel}</span>
+            </div>
+          )}
+          <div class:list={["ev", event.side, event.kind, event.pulse && "now", "reveal"]}>
+            <span class="dot"></span>
+            <div class="glass hov card">
+              <div class="when">
+                {isPlaceholder(event.date) ? (
+                  <span class="ph">{event.date}</span>
+                ) : (
+                  <span class="date">{event.date}</span>
+                )}
+                <span class={`badge ${badgeClass[event.kind]}`}>{event.badge}</span>
+              </div>
+              <h3>{event.title}</h3>
+              <p>{event.body}</p>
+              {event.ai && (
+                <div class="ai-note">
+                  <div class="hd">
+                    <span class="sp" set:html={ic(P_SPARK, "#fff", 11)} />
+                    {journey.aiNote}
+                  </div>
+                  <div class="tags">
+                    {journey.aiTags.map((tag) => (
+                      <span>{tag}</span>
+                    ))}
+                  </div>
+                </div>
+              )}
+              <div class="tags">
+                {event.tags.map((tag) => (
+                  <span>{tag}</span>
+                ))}
+              </div>
+              {event.href && (
+                <a class="lk" href={event.href} rel="noreferrer">
+                  {event.href.replace("https://", "")} <span class="arrow">→</span>
+                </a>
+              )}
+            </div>
+          </div>
+        </>
+      ))
+    }
+  </div>
+</div>
