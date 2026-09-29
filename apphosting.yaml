@@ -1,0 +1,12 @@
+# Firebase App Hosting configuration for the River Apps Astro marketing site.
+# The app lives at the REPO ROOT — in the Firebase console, leave
+# "Root directory" empty (or `/`). Do NOT set it to `main`.
+#
+# `npm run build` emits static files to dist/; `npm start` serves them on $PORT.
+
+runConfig:
+  minInstances: 0
+  maxInstances: 20
+  concurrency: 80
+  cpu: 1
+  memoryMiB: 512
